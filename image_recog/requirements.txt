@@ -1,0 +1,8 @@
+torch
+efficientnet_pytorch
+flask
+flask_cors
+pyimage
+quart
+quart-cors
+rapidjson
