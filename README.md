@@ -1,4 +1,4 @@
-# A mircoservice application to deploy a DL application
+# A mircoservice application using DL models over an API
 
 - Base TensorFlow or Pytorch framework
 - A deep learning service like image classification
