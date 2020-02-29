@@ -41,7 +41,10 @@ def predict(model, img):
         y_hat = model(img)
     index = torch.topk(y_hat, k=1)[1]
     prob = torch.softmax(y_hat, dim=1)[0, index].item()
-    y_hat = load_labels(index[0])
+    try:
+        y_hat = load_labels(index.item())
+    except ValueError:
+        y_hat = load_labels(index.item())
     return y_hat, prob
 
 
@@ -52,7 +55,6 @@ def classify(image):
 
 
 if __name__ == "__main__":
-    # TODO (unrahul) add a flask api layer
     y_hat = classify(image="./data/cat.jpg")
     print("img recognition test, data: ./data/cat.jpg")
     print("img is of an {0}".format(*y_hat))

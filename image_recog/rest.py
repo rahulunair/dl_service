@@ -52,7 +52,7 @@ def usage():
 def recog():
     if flask.request.files.get("img"):
         img = flask.request.files["img"].read()
-        img = Image.open(io.BytesIO(img))
+        img = Image.frombytes("RGBA", (128,128), img, "raw")
         y_hat = classify(img)
         return flask.jsonify({"class": y_hat[0], "prob": y_hat[1]}), 201
     return flask.jsonify({"status": "not an image file"})
@@ -64,4 +64,4 @@ def not_found(error):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5059)
+    app.run(host="0.0.0.0", debug=True, port=5059)

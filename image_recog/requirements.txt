@@ -6,3 +6,4 @@ pyimage
 quart
 quart-cors
 rapidjson
+torchvision
