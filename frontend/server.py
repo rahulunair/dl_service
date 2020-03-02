@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """server basic templates to upload a file to be sent to the classifier"""
+import ast
 import os
 
 import numpy as np
@@ -35,8 +36,8 @@ def classifier(img):
     """send img file to classifier and get the output."""
     data = {"img" : open(os.path.join("static", img), "rb")}
     resp = requests.post("http://localhost:5059/recog", files=data)
-    print(resp.status_code)
-    return resp.content
+    cls = ast.literal_eval(resp.content.decode("utf-8"))["class"]
+    return cls 
 
 
 
