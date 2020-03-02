@@ -24,6 +24,7 @@ def upload_file():
         if img_file:
             filename = img_file.filename
             img_file.save(os.path.join("static", filename))
+
             result = classifier(img_file.filename)
             path_to_image = url_for("static", filename=filename)
             res_args = {"output": result, "path_to_image": path_to_image, "size": 224}
@@ -32,7 +33,7 @@ def upload_file():
 
 def classifier(img):
     """send img file to classifier and get the output."""
-    data = {"img" : open(img_file.filename, "rb")}
+    data = {"img" : open(os.path.join("static", img), "rb")}
     resp = requests.post("http://localhost:5059/recog", files=data)
     print(resp.status_code)
     return resp.content
