@@ -46,7 +46,6 @@ def classifier(img):
             headers=headers)
     cls = ast.literal_eval(resp.content.decode("utf-8"))[0]
     return cls 
-    #return resp.content
 
 
 
