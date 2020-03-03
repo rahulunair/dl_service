@@ -10,6 +10,7 @@ from main import classify
 
 def img_buffer():
     input_buff = sys.stdin.buffer.read()
+    print(input_buff)
     img_bytes = BytesIO(input_buff)
     image = Image.open(img_bytes).convert("RGB")
     input_img_path = "input_img_%s.jpg" % rand_string()
@@ -21,4 +22,4 @@ def rand_string():
     return rand_str
 
 if __name__ == "__main__":
-    print(classify(img_buffer()))
+    return classify(img_buffer())
