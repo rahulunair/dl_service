@@ -8,11 +8,14 @@ from PIL import Image
 
 from main import classify
 
-def img_buffer():
-    input_buff = sys.stdin.buffer.read()
-    decoded_img = base64.urlsafe_b64decode(input_buff) 
-    img_bytes = BytesIO(input_buff)
-    image = Image.open(img_bytes).convert("RGB")
+def read_buffer():
+    """read encoded image save it local and return path."""
+    b64_encoded = sys.stdin.buffer.read()
+    decoded_img = base64.urlsafe_b64decode(b64_encoded) 
+    img_buffer = BytesIO()
+    img_buffer.write(decoded_img)
+    img_buffer.seek(0)
+    image = Image.open(img_buffer).convert("RGB")
     input_img_path = "input_img_%s.jpg" % rand_string()
     image.save(input_img_path)
     return input_img_path
@@ -22,4 +25,4 @@ def rand_string():
     return rand_str
 
 if __name__ == "__main__":
-    classify(img_buffer())
+    classify(read_buffer())
