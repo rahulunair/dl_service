@@ -36,10 +36,15 @@ def upload_file():
 def classifier(img):
     """send img file to classifier and get the output."""
     img = open(os.path.join("static", img), "rb").read()
-    data = {"img" : img}
-    #resp = requests.post("http://127.0.0.1:8080/function/img-recog-faas", files=data)
-    resp = requests.post("http://localhost:5059/recog", files=data)
-    cls = ast.literal_eval(resp.content.decode("utf-8"))["class"]
+    headers = {"Content-Type": "application/octet-stream"}
+    #data = {"img" : img}
+    #resp = requests.post("http://localhost:5059/recog", files=data)
+    data = img
+    resp = requests.post(
+            url="http://127.0.0.1:8080/function/img-recog-faas",
+            data=data,
+            headers=headers)
+    cls = ast.literal_eval(resp.content.decode("utf-8"))[0]
     return cls 
     #return resp.content
 

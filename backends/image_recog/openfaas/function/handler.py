@@ -11,12 +11,8 @@ from faas_main import classify
 
 def read_buffer():
     """read encoded image save it local and return path."""
-    # img = sys.stdin.buffer.read()
-    img = sys.stdin.readline()
-    img_buffer = BytesIO()
-    img_buffer.write(img)
-    print("img buffer:: ", img_buffer)
-    img_buffer.seek(0)
+    img = sys.stdin.buffer.read()
+    img_buffer = BytesIO(img)
     image = Image.open(img_buffer).convert("RGB")
     input_img_path = "input_img_%s.jpg" % rand_string()
     image.save(input_img_path)
@@ -39,5 +35,5 @@ def rand_string():
 
 
 if __name__ == "__main__":
-    b64_img = read_buffer()
-    print("inside main block of handler.py")
+    res = classify(read_buffer())
+    print(res)
