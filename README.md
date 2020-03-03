@@ -1,4 +1,4 @@
-## serverless app for image classification using OpenFaas and Pytorch
+## Serverless app for image classification using OpenFaas and PyTorch
 
 - Base Pytorch framework docker image
 - An Efficientnet based classification model for image recognition
