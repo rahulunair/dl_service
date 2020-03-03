@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import base64
 from itertools import islice
 
 try:
@@ -47,6 +48,9 @@ def predict(model, img):
         y_hat = load_labels(index.item())
     return y_hat, prob
 
+
+def base64_decode(img_string):
+    return base64.decodebytes(img_string)
 
 def classify(image):
     model = get_model("efficientnet-b0")

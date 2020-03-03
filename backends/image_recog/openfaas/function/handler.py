@@ -20,9 +20,21 @@ def read_buffer():
     image.save(input_img_path)
     return input_img_path
 
+def get_stdin():
+    buf = ""
+    while(True):
+        line = sys.stdin.readline()
+        buf += line
+        if line=="":
+            break
+    return buf
+
 def rand_string():
     rand_str = "".join(random.choices(string.ascii_letters + string.digits, k=10))
     return rand_str
 
 if __name__ == "__main__":
-    classify(read_buffer())
+    #b64_img = read_buffer()
+    print("inside main block of handler.py")
+    b64_img = get_stdin()
+    print(classify(b64_img))
