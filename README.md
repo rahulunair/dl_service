@@ -1,15 +1,13 @@
-# A mircoservice application using DL models over an API
+# A serverless application for image classification using OpenFaas and Pytorch
 
-- Base TensorFlow or Pytorch framework
-- A deep learning service like image classification
-- A simple web application that uses the function
+- Base Pytorch framework docker image
+- An Efficientnet based classification model for image recognition
+- A simple web application to upload an image and get result
 
 
 Services communication
 
+Web app to image recognition service:
+- Event based faas
 - File IO
 - REST API
-- gRPC
-
-- Three applications are containerized and deployed using docker compose
-- The service can be served as serverless or persistent
