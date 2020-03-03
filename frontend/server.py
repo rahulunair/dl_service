@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """server basic templates to upload a file to be sent to the classifier"""
 import ast
+import base64
 import os
 
 import numpy as np
@@ -34,10 +35,14 @@ def upload_file():
 
 def classifier(img):
     """send img file to classifier and get the output."""
-    data = {"img" : open(os.path.join("static", img), "rb")}
-    resp = requests.post("http://localhost:5059/recog", files=data)
-    cls = ast.literal_eval(resp.content.decode("utf-8"))["class"]
-    return cls 
+    img = open(os.path.join("static", img), "rb")
+    base64_img = base64.urlsafe_b64encode(data.encode("utf-8"))
+    data = {"img" : base64_img}
+    resp = requests.post("http://127.0.0.1:8080/function/img-recog-faas", files=data)
+    #resp = requests.post("http://localhost:5059/recog", files=data)
+    #cls = ast.literal_eval(resp.content.decode("utf-8"))["class"]
+    #return cls 
+    return resp.content
 
 
 

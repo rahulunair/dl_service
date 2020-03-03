@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import base64
 import sys
 import random
 import string
@@ -10,7 +10,7 @@ from main import classify
 
 def img_buffer():
     input_buff = sys.stdin.buffer.read()
-    print(input_buff)
+    decoded_img = base64.urlsafe_b64decode(input_buff) 
     img_bytes = BytesIO(input_buff)
     image = Image.open(img_bytes).convert("RGB")
     input_img_path = "input_img_%s.jpg" % rand_string()
@@ -22,4 +22,4 @@ def rand_string():
     return rand_str
 
 if __name__ == "__main__":
-    return classify(img_buffer())
+    classify(img_buffer())
