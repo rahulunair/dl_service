@@ -1,0 +1,14 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  pix2pix-faas:
+    lang: pytorch
+    handler: ./function
+    image: rahulunair/img_recog
+    environment:
+        fprocess: "python handler.py"
+        read_timeout: "90s"
+        write_timeout: "90s"
+        upstream_timeout: "85s"
