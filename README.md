@@ -8,6 +8,6 @@
 Services communication
 
 Web app to image recognition service:
-- Event based faas
+- Event based faas using OpenFaas
 - File IO
-- REST API
+- REST API using Flask
