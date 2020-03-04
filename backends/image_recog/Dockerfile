@@ -1,4 +1,4 @@
-FROM pytorch/pytorch
+FROM clearlinux/stacks-pytorch-mkl
 
 WORKDIR /efficient_net/
 COPY . /efficient_net/
