@@ -1,3 +1,6 @@
+## Deploy the solution with OpenFaas
+
+- Set up a local OpenFaas cluster, as given here using [docker swarm](https://github.com/openfaas/workshop/blob/master/lab1.md)
 
 1. Pull in the faas template for Pytorch
 
