@@ -4,7 +4,7 @@
 - An Efficientnet based classification model for image recognition
 - A simple web application to upload an image and get result
 
-[![https://imgur.com/on0ebtc.png](https://imgur.com/on0ebtc.png)](https://imgur.com/on0ebtc.png)
+[](https://imgur.com/on0ebtc.png)
 
 Services communication
 
