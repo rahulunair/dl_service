@@ -1,15 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-  <div class="container bg">
-{% extends "bootstrap/base.html" %}
-{% block title %}dlrs classifier{% endblock %}
+<!doctype html>
 
-{% block content %}
-{% endblock %}
-</div>
+<!--path, id, label -->
+{% set active_page = active_page|default('index') -%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Faas Image Classifier</title>
+
+  <script src="https://kit.fontawesome.com/cdca6a9498.js" crossorigin="anonymous"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='cover.css') }}">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-center">
+  <div class="cover-container d-flex h-50 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <nav class="nav nav-masthead">
+          <a href="/"><img src="static/homey.png" height="50" width="50"></a>
+          <a class="nav-link active" target="_blank" href="https://github.com/rahulunair/dl_service">Source</a>
+          <nav class="nav nav-masthead justify-content-center">
+          </nav>
+      </div>
+    </header>
+    <main role="main" class="inner cover">
+      {% block content %}{% endblock %}
+    </main>
+    <hr>
+    <footer class="mastfoot mt-auto">
+      Created with love from OSS.
+    </footer>
+  </div>
 </body>
+
 </html>

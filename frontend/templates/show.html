@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% set active_page = "index" %}
 
 {% block content %}
 <div class="container">
-   <h2>Serverless image classifier using PyTorch and OpenFaas</h2>
+   <h2>Image classifier using DLRS and OpenFaas</h2>
   <hr>
   </hr>
-    <div><img src="{{ result.path_to_image }}" class="img-rounded" width="{{ result.size }}" height="auto"></div>
+    <div><img src="{{ result.path_to_image }}" class="rounded" width="{{ result.size }}" height="auto"></div>
     <hr>
     <h3>Image is of a {{ result.output }}</h3>
     <hr>
-    <a href = "{{ url_for('upload_file') }}" class="btn btn-default">Go Back</a>
+    <a href = "{{ url_for('upload_file') }}" class="btn btn-success">Go Back</a>
 </div>
 {% endblock %}

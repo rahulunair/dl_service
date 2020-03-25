@@ -1,18 +1,15 @@
 {% extends "base.html" %}
+{% set active_page = "index" %}
 
 {% block content %}
-<div class="container">
-    <h2>Serverless image classifier using PyTorch and OpenFaas</h2>
+<div>
+    <h2>Image classifier using DLRS and OpenFaas</h2>
     <hr>
     <h4>Upload image to classify</h4>
     <hr>
-    <form method="post" enctype="multipart/form-data" class="form-inline">
-        <div class="form-group">
-            <input type="file" name="file" class="btn btn-default">
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Upload", class="btn btn-default">
-        </div>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" class="btn-default">
+        <input type="submit" value="Upload" class="btn btn-primary">
     </form>
 </div>
 {% endblock %}
